@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import ImagenCripto from './img/cryptomonedas.png'
+import Formulario from './components/Formulario';
 
 const Heading = styled.h1`
   color: #ffffff  ;
@@ -45,6 +46,7 @@ function App() {
    src={ImagenCripto} />
    <div>
    <Heading>Cotiza criptomonedas al instante</Heading>
+    <Formulario />
    </div>
    </Contenedor>
    </>
