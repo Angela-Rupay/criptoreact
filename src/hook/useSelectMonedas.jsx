@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from '@emotion/styled';
 
 const Etiqueta = styled.label`
@@ -19,11 +20,19 @@ const Selector = styled.select`
 
 const useSelectMonedas = (label, opciones) => {
 
+    const [state, setState] = useState('')
+
     const SelectMonedas = () => (
         <>
        <Etiqueta>{label}</Etiqueta>
-       <Selector>
+       <Selector
+       value={state}
+       onChange={(e) => setState(e.target.value)}
+         >
         <option value="">Seleccione</option>
+        {/*  https://developers.coindesk.com/documentation/legacy/Toplist/TopTotalMktCapEndpointFull
+        "https://min-api.cryptocompare.com/data/top/mktcapfull?limit=10&tsym=USD"
+        https://min-api.cryptocompare.com/data/top/mktcapfull?limit=10&tsym=USD */}
 
         {opciones.map(opcion => (
             <option 
@@ -34,6 +43,6 @@ const useSelectMonedas = (label, opciones) => {
        </Selector>
        </>
     )
-    return [SelectMonedas]     
+    return [state, SelectMonedas]     
 }
 export default useSelectMonedas
